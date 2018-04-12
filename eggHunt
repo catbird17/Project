@@ -21,10 +21,35 @@ def init_main_window(dimensions, caption):
     pygame.display.set_caption(caption)
     return pygame.display.set_mode(dimensions)
 
-def load_plain()
+def load_plain():
+	pass
+
+
+def load_level(level, display):
+	pass
 
 def play_game():
-    DISPLAYSURF = init_main_window((800,800),'Egg Hunt')
+    DISPLAYSURF = init_main_window((1000,800),'Egg Hunt')
+    #background = pygame.image.load("grass")
+
+    #Display grass as background
+    #DISPLAYSURF.blit(background, (0,0))
+
+    #Load devil thing & build its rectangle
+    devil_img = pygame.image.load("devil.jfif")
+    devil = devil_img.get_rect()
+
+    #main game variables
+    lives = 0
+    level = 1
+    eggs = 0
+
+    #Main game play
+
+    while lives > 0:
+    	#run the game
+    	pass
 
 if __name__=='__main__':
     play_game()
+   
