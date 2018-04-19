@@ -2,6 +2,7 @@
 
 import pygame, sys, random
 from pygame.locals import *
+pygame.init()
 
 
 # Constant color definitions
@@ -21,34 +22,59 @@ def init_main_window(dimensions, caption):
     pygame.display.set_caption(caption)
     return pygame.display.set_mode(dimensions)
 
-def load_plain():
-	pass
-
 
 def load_level(level, display):
-	pass
+	if level == "easy": #one color of egg & basket, not fast bunny
+        pass
+    elif level == "medium": #two colors of eggs and basket, medium speed bunny
+        pass
+    else: #three colors of eggs and baskets, high speed bunny
+        pass
+
+#function defining user movement of plebe 
+def move_plebe():
+    pass
+
+#what happens if the devil bunny catches the plebe
+def plebe_dies():
+    pass
+
+#what happens if the user collides with an egg
+def grabs_egg():
+    pass
+
+#what happens if the user has the egg and collides with the basket
+def drop_egg():
+    pass
 
 def play_game():
     DISPLAYSURF = init_main_window((1000,800),'Egg Hunt')
-    #background = pygame.image.load("grass")
-
+    
     #Display grass as background
-    #DISPLAYSURF.blit(background, (0,0))
+    background = pygame.image.load("grass.jpg")
+    background_rect = background.get_rect()
+    DISPLAYSURF.blit(background, background_rect)
 
+    
+
+
+
+    pygame.display.update()
     #Load devil thing & build its rectangle
-    devil_img = pygame.image.load("devil.jfif")
-    devil = devil_img.get_rect()
+    #devil_img = pygame.image.load("devil.png")
+    #devil = devil_img.get_rect()
 
     #main game variables
-    lives = 0
+    lives = 3
     level = 1
-    eggs = 0
 
     #Main game play
-
     while lives > 0:
     	#run the game
-    	pass
+
+    	load_level(level, DISPLAYSURF)
+
+        pygame.display.update()
 
 if __name__=='__main__':
     play_game()
