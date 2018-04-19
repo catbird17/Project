@@ -24,7 +24,7 @@ def init_main_window(dimensions, caption):
 
 
 def load_level(level, display):
-	if level == "easy": #one color of egg & basket, not fast bunny
+    if level == "easy": #one color of egg & basket, not fast bunny
         pass
     elif level == "medium": #two colors of eggs and basket, medium speed bunny
         pass
@@ -47,6 +47,13 @@ def grabs_egg():
 def drop_egg():
     pass
 
+def draw_text(text, font, surface, x, y):
+    textobj = font.render(text,1,PURPLE)
+    textrect = textobj.get_rect()
+    textrect.topleft = (x,y)
+    surface.blit(textobj, textrect)
+
+
 def play_game():
     DISPLAYSURF = init_main_window((1000,800),'Egg Hunt')
     
@@ -56,7 +63,9 @@ def play_game():
     DISPLAYSURF.blit(background, background_rect)
 
     
-
+    font = pygame.font.SysFont(None,100)
+    draw_text("Pick level by pressing key:",font,DISPLAYSURF, 70,350)
+    draw_text("1 - Easy, 2 - Medium, 3 - Hard",font,DISPLAYSURF,15,420)
 
 
     pygame.display.update()
@@ -74,7 +83,7 @@ def play_game():
 
     	load_level(level, DISPLAYSURF)
 
-        pygame.display.update()
+        
 
 if __name__=='__main__':
     play_game()
